@@ -1,8 +1,8 @@
-arch: "aarch64"
+arch: "x86_64"
 
 images:
-  - location: "./imgs/nixos-aarch64.img"
-    arch: "aarch64"
+  # - location: "./imgs/nixos-aarch64.img"
+  #   arch: "aarch64"
   - location: "./imgs/nixos-x86.img"
     arch: "x86_64"
 
@@ -24,4 +24,3 @@ mountType: "9p"
 containerd:
   system: false
   user: false
-

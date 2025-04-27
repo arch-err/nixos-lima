@@ -12,20 +12,18 @@ echo "system-features = nixos-test benchmark big-parallel kvm" >> /etc/nix/nix.c
 reboot
 
 # build image
-nix --extra-experimental-features nix-command --extra-experimental-features flakes build .#packages.aarch64-linux.img
-cp $(readlink result)/nixos.img /tmp/lima/nixos-aarch64.img
+nix --extra-experimental-features nix-command --extra-experimental-features flakes build .#packages.x86_64-linux.img
+cp $(readlink result)/nixos.img /tmp/lima/nixos-x86.img
 ```
 
 On your mac:
-* Move `nixos-aarch64.img` under `imgs`
+* Move `nixos-x86_64.img` under `imgs`
 
 ## Running NixOS
 ```bash
-limactl start --name=default nixos.yaml
+limactl start --name=nix nixos.yaml
 
 lima
 # switch to this repo directory
 nixos-rebuild switch --flake .#nixos --use-remote-sudo
 ```
-
-
